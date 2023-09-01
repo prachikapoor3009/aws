@@ -1,13 +1,73 @@
-AWS KEY MANAGEMENT SERVICE
----------------------------
+DATA PROTECTION
+----------------
 protects data from unauthorized access.
 - Amazon Macie: protects data 
+              : fully managed data security and data privacy service
+              : uses ML and pattern matching to identify sensitive information.
+              : automates discovery of sensitive data and protects them.
+              : unecypted buckets, publicly accessible buckets identification.
+              : finding to clouwatch
+
 - Amazon KMS: manage key storage
-- AWS CloudHSM : manage key storage (hardware based for complaince)
-- AWS Certificate Manager : manage SSL/TLS certificates
-- AWS Secrets Manager:  manage secrets like password and manages rotation
+AWS Key Management Service(KMS) helps you in creating, managing and controlling keys for your applications
+AWS Key Management Service (AWS KMS) is a managed service that makes it easy for you to create and control the encryption keys used to encrypt your data
+You can schedule key deletion. After the waiting period the key will be deleted and it is irreversible.
+Once you schedule the key deletion, you can cancel it during the waiting period.
+
+
+- AWS CloudHSM : manage key storage (hardware based model for compliance)
+               : cloud based hardware security module.
+
+- AWS Certificate Manager : manage SSL/TLS certificates 
+                          : managed certificate renewal
+
+- AWS Secrets Manager : manage secrets like password and manages rotation
+                      : 
+
 
 AWS KMS
 -------
-- Key management service
-- create and manage encruption keys
+- Fully managed AWS service
+- Use cases : to create CMK(Customer managed keys)
+            : manage keys by encrypting them
+            : Easily create keys and encryption across AWS services.
+- Benefits: No upfront investment
+          : Security
+          : Availability
+          : Integrated with RDS/CloudTrail
+          : secure infrastructure by KMS
+          : Easily create keys and encryption across AWS services.
+          : Create, control, rotate and delete keys and it's use in application.
+          : integrated with 19 services for server side encryption like s3, efs, dynamo,cloudtrail.
+          : maintains keys in HSM(Hardware security module)
+
+
+- Resources of KMS: a) Customer Master keys: encryption keys
+                    b) Data keys: keys generated using CMK
+
+- Creation: a) AWS console
+            b) KMS
+            C) Region selection
+            d) Customer managed keys
+            e) Create key
+            f) Choose key type - Symmetric : Single encryption key for both encrypt and descrypt operations.
+                               - Asymmetric : Public and private key pair to encrypt/decrypt.
+
+            g) Create alias / desciption for this key.
+            h) Choose IAM account admin.
+            i) Select user
+            j) Review and edit policy
+            k) Key created
+            l) For S3-> you can select this KMS key for encryption: 
+            S3 -> Encryption Key Type = SSE-KMS(encryption key created by AWS KMS) -> AWS KMS key -> 
+            Choose from KMS MASTER KEYS
+             
+Customer Master Keys are encryption keys that you create and use for encryption.
+These keys will be available for IAM users or roles who have been given usage rights during key creation.
+These customer master keys (CMK) are created and managed by the customer, unlike the AWS managed customer master keys where AWS
+manages the CMK.
+Data Keys are keys generated using CMKs to encrypt huge amount of data.
+Additionally, you can also import keys from external source to AWS using Cloud HSM cluster.
+
+
+            
