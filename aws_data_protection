@@ -1,0 +1,13 @@
+AWS KEY MANAGEMENT SERVICE
+---------------------------
+protects data from unauthorized access.
+- Amazon Macie: protects data 
+- Amazon KMS: manage key storage
+- AWS CloudHSM : manage key storage (hardware based for complaince)
+- AWS Certificate Manager : manage SSL/TLS certificates
+- AWS Secrets Manager:  manage secrets like password and manages rotation
+
+AWS KMS
+-------
+- Key management service
+- create and manage encruption keys
